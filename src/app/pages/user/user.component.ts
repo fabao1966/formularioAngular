@@ -16,8 +16,8 @@ export class UserComponent implements OnInit{
   }
 
   getNome(){
-    this.route.paramMap.subscribe((params) => {
-      this.username = params.get('username');
+    this.route.queryParams.subscribe((params) => {
+      this.username = params['username'];
     });
   }
   
