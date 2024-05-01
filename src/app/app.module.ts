@@ -11,6 +11,7 @@ import { FooterComponent } from './_components/footer/footer.component';
 import { BaseUIComponent } from './_components/base-ui/base-ui.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserComponent } from './pages/user/user.component';
+import { UsercardComponent } from './_components/usercard/usercard.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { UserComponent } from './pages/user/user.component';
     FooterComponent,
     BaseUIComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    UsercardComponent
   ],
   imports: [
     BrowserModule,
