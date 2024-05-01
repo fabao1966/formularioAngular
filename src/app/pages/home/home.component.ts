@@ -5,12 +5,8 @@ import { Component, DoCheck } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent implements DoCheck {
+export class HomeComponent{
   num:number = 1;
-
-  ngDoCheck(){
-    console.log("Mudança detectada...");
-  }
 
   adiciona(){
     this.num++;
