@@ -1,7 +1,14 @@
 <div class="row">
-    <app-usercard 
-        *ngFor="let user of users" 
-        [user]="user" 
-        class="col-md">
+    <app-usercard
+      (userInfoEmiter)="infoUserSelecionado($event)"
+      *ngFor="let user of users"
+      [user]="user"
+      class="col-md">
     </app-usercard>
+</div>
+
+<div *ngIf="userSelecionado" class="mt5 border col-md p-3">
+  <h2>Usuário Selecionado</h2>
+  <p>Nome: {{ userSelecionado.nome }}</p>
+  <p>Idade: {{ userSelecionado.idade }}</p>
 </div>

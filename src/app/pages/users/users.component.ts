@@ -8,6 +8,11 @@ import { User } from '../../_models/user';
 })
 export class UsersComponent {
    //users:string[] = ['Abda', 'Baasa', 'Cadmiel', 'Dafne'];
+   userSelecionado:User | undefined;
+
+   infoUserSelecionado(user:User){
+    this.userSelecionado = user;
+   }
 
    users: User[] = [
     {
