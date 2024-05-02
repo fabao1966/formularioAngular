@@ -1,4 +1,6 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
+import { UserService } from '../../_services/user.service';
+import { User } from '../../_models/user';
 
 @Component({
   selector: 'app-home',
@@ -6,9 +8,11 @@ import { Component, DoCheck } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent{
-  num:number = 1;
+  user: User | undefined;
+  private userService = inject(UserService);
 
-  adiciona(){
-    this.num++;
+  constructor(){
+    this.user = this.userService.getUser();
   }
+
 }

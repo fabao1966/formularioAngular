@@ -1,6 +1,7 @@
 import { Component, OnInit, inject} from '@angular/core';
 import { User } from '../../_models/user';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { UserService } from '../../_services/user.service';
 
 @Component({
   selector: 'app-users',
@@ -10,8 +11,13 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class UsersComponent implements OnInit {
    //users:string[] = ['Abda', 'Baasa', 'Cadmiel', 'Dafne'];
    userSelecionado:User | undefined;
+
    userFom: FormGroup = new FormGroup({});
+
    private formBuilder = inject(FormBuilder);
+
+   constructor(private userService:UserService){
+   }
 
    ngOnInit(): void {
        this.initializeForm();
@@ -35,6 +41,7 @@ export class UsersComponent implements OnInit {
 
    infoUserSelecionado(user:User){
     this.userSelecionado = user;
+    this.userService.setUser(user);
    }
 
    users: User[] = [
