@@ -12,6 +12,7 @@ import { BaseUIComponent } from './_components/base-ui/base-ui.component';
 import { UsersComponent } from './pages/users/users.component';
 import { UserComponent } from './pages/user/user.component';
 import { UsercardComponent } from './_components/usercard/usercard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UsercardComponent } from './_components/usercard/usercard.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration()
