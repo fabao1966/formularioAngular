@@ -1,17 +1,34 @@
-import { Component, inject} from '@angular/core';
+import { Component, OnInit, inject} from '@angular/core';
 import { User } from '../../_models/user';
-import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit {
    //users:string[] = ['Abda', 'Baasa', 'Cadmiel', 'Dafne'];
    userSelecionado:User | undefined;
    userFom: FormGroup = new FormGroup({});
    private formBuilder = inject(FormBuilder);
+
+   ngOnInit(): void {
+       this.initializeForm();
+   }
+
+   initializeForm(){
+    this.userFom = this.formBuilder.group({
+      nome: ['', [Validators.required, Validators.maxLength(255)]],
+      idade: [ '', [Validators.required, Validators.min(12), Validators.max(120)]]
+    })
+   }
+
+   submitForm(){
+      if (this.userFom.valid) {
+        console.log(this.userFom.value);
+      }
+   }
 
    infoUserSelecionado(user:User){
     this.userSelecionado = user;

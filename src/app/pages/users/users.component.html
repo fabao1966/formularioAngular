@@ -1,16 +1,16 @@
-<form >
+<form [formGroup]="userFom">
   <fieldset>
   <div class="row">
     <div class="form-group col-md-6">
       <label for="nome">Nome</label>
-      <input id="nome" type="text" class="form-control">
+      <input id="nome" type="text" class="form-control" formControlName="nome">
     </div>
     <div class="form-group col-md-3">
       <label for="idade">Idade</label>
-      <input id="idade" type="number" class="form-control">
+      <input id="idade" type="number" class="form-control" formControlName="idade">
     </div>
   </div>
-  <button class="btn btn-success">Incluir</button>
+  <button (click)="submitForm()" class="btn btn-success">Incluir</button>
 </fieldset>
 </form>
 
