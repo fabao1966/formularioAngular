@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { UserService } from '../../_services/user.service';
 import { User } from '../../_models/user';
+import { UserGit } from '../../_models/userGit';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +10,15 @@ import { User } from '../../_models/user';
 })
 export class HomeComponent implements OnInit{
   private userService = inject(UserService);
+  user: UserGit | undefined;
 
     ngOnInit(){
       this.getGitUser();
     }
 
     getGitUser(){
-      this.userService.getGitUser('facebook').subscribe((response:any) => {
-        console.log(response);
+      this.userService.getGitUser('facebook').subscribe((response:UserGit) => {
+        this.user = response;
       });
     }
 }
