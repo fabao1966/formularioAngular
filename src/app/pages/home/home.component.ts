@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit{
     }
 
     getGitUser(){
-      this.userService.getGitUser('facebook').subscribe((response:UserGit) => {
+      this.userService.getGitUser('bitcoin').subscribe((response:UserGit) => {
         this.user = response;
       });
     }
